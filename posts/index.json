@@ -1,0 +1,16 @@
+[
+  {
+    "slug": "2026-06-09-welcome",
+    "title": "欢迎来到我的博客",
+    "date": "2026-06-09",
+    "summary": "这是第一篇示例文章，用来展示首页索引、详情页渲染和发布流程。",
+    "tags": ["Blog", "Notes"]
+  },
+  {
+    "slug": "2026-06-08-how-this-site-publishes",
+    "title": "这个站点如何在网页里发布文章",
+    "date": "2026-06-08",
+    "summary": "不用数据库，也不在前端保存密钥，发布动作交给 GitHub API 和仓库权限完成。",
+    "tags": ["GitHub", "Guide"]
+  }
+]

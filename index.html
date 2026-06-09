@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="一个可直接在网页中发布文章的个人博客。">
+    <title>My Blog</title>
+    <link rel="stylesheet" href="assets/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="回到首页">
+        <span class="brand-mark">B</span>
+        <span>My Blog</span>
+      </a>
+      <nav class="nav-links" aria-label="主导航">
+        <a href="#posts">文章</a>
+        <a href="#about">关于</a>
+        <a href="publish.html">发布</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero-section" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Personal notes, ideas and projects</p>
+          <h1 id="hero-title">记录值得反复咀嚼的学习、技术和生活观察。</h1>
+          <p class="hero-text">
+            参考 Quarto 个人站的清爽结构，保留首页介绍、文章索引、项目式归档和搜索体验。
+            你可以直接在站点内通过 GitHub 账号发布新文章。
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#posts">浏览文章</a>
+            <a class="button secondary" href="publish.html">写一篇</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <img src="assets/hero.svg" alt="">
+        </div>
+      </section>
+
+      <section class="intro-grid" id="about" aria-labelledby="about-title">
+        <div>
+          <p class="section-kicker">About</p>
+          <h2 id="about-title">一个适合长期写作的静态博客。</h2>
+        </div>
+        <div class="intro-copy">
+          <p>
+            站点不需要数据库，也不需要自建服务器。所有文章都存放在仓库中，GitHub Pages 负责部署，
+            GitHub API 负责在你发布时把 Markdown 文件写回仓库。
+          </p>
+          <p>
+            只有拥有仓库写权限的 GitHub 账号才能发布。前端不会保存 token，刷新页面后需要重新填写。
+          </p>
+        </div>
+      </section>
+
+      <section class="posts-section" id="posts" aria-labelledby="posts-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Blogs</p>
+            <h2 id="posts-title">最新文章</h2>
+          </div>
+          <label class="search-box">
+            <span>搜索</span>
+            <input id="searchInput" type="search" placeholder="标题、标签、摘要..." autocomplete="off">
+          </label>
+        </div>
+        <div class="filters" id="tagFilters" aria-label="文章标签筛选"></div>
+        <div class="post-list" id="postList" aria-live="polite"></div>
+        <p class="empty-state hidden" id="emptyState">没有找到匹配的文章。</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Powered by GitHub Pages</span>
+      <span>Write locally, publish from the browser.</span>
+    </footer>
+
+    <script src="assets/home.js" type="module"></script>
+  </body>
+</html>
