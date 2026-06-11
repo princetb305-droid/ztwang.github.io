@@ -1,5 +1,12 @@
 [
   {
+    "slug": "AI同声传译系统",
+    "title": "AI 同声传译系统",
+    "date": "2026-06-05",
+    "summary": "一个基于 React、Node.js、Web Speech API 和硅基流动模型的实时双语字幕与历史纠错系统项目说明。",
+    "tags": ["AI", "Project", "Speech"]
+  },
+  {
     "slug": "2026-06-09-welcome",
     "title": "\u6b22\u8fce\u6765\u5230\u6211\u7684\u535a\u5ba2",
     "date": "2026-06-09",
