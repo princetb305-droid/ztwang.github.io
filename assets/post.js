@@ -1,4 +1,4 @@
-import { escapeHtml, postHeader, renderMarkdown } from "./markdown.js";
+import { escapeHtml, postHeader, renderMarkdown, renderMermaid } from "./markdown.js";
 
 const article = document.querySelector("#article");
 const params = new URLSearchParams(window.location.search);
@@ -25,6 +25,7 @@ async function loadArticle() {
 
     document.title = `${post.title} - ztwang`;
     article.innerHTML = `${postHeader({ ...post, content })}${renderMarkdown(content)}`;
+    await renderMermaid(article);
   } catch (error) {
     article.innerHTML = `<p class="empty-state">${escapeHtml(error.message)}。</p>`;
   }

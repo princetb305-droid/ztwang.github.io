@@ -10,114 +10,49 @@ export function escapeHtml(value = "") {
   return String(value).replace(/[&<>"']/g, (char) => escapeMap.get(char));
 }
 
-function slugify(value) {
-  return value
-    .toLowerCase()
-    .trim()
-    .replace(/[^\p{Letter}\p{Number}]+/gu, "-")
-    .replace(/^-+|-+$/g, "");
-}
+function createRenderer() {
+  if (!window.marked) return null;
+  const renderer = new window.marked.Renderer();
 
-function renderInline(value) {
-  let html = escapeHtml(value);
-  html = html.replace(/`([^`]+)`/g, "<code>$1</code>");
-  html = html.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
-  html = html.replace(/\*([^*]+)\*/g, "<em>$1</em>");
-  html = html.replace(
-    /\[([^\]]+)\]\((https?:\/\/[^)\s]+|[^)\s]+)\)/g,
-    '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>',
-  );
-  return html;
-}
+  renderer.code = (token) => {
+    const language = String(token.lang || "").trim().toLowerCase();
+    const code = token.text || "";
 
-function flushParagraph(lines, html) {
-  if (lines.length === 0) return;
-  html.push(`<p>${renderInline(lines.join(" "))}</p>`);
-  lines.length = 0;
-}
+    if (language === "mermaid") {
+      return `<div class="mermaid">${escapeHtml(code)}</div>`;
+    }
 
-function flushList(lines, html) {
-  if (lines.length === 0) return;
-  html.push("<ul>");
-  for (const line of lines) {
-    html.push(`<li>${renderInline(line)}</li>`);
-  }
-  html.push("</ul>");
-  lines.length = 0;
+    const langClass = language ? ` class="language-${escapeHtml(language)}"` : "";
+    return `<pre><code${langClass}>${escapeHtml(code)}</code></pre>`;
+  };
+
+  return renderer;
 }
 
 export function renderMarkdown(markdown = "") {
-  const lines = markdown.replace(/\r\n/g, "\n").split("\n");
-  const html = [];
-  const paragraph = [];
-  const list = [];
-  let inCode = false;
-  let codeLines = [];
-
-  for (const rawLine of lines) {
-    const line = rawLine.replace(/\s+$/g, "");
-
-    if (line.startsWith("```")) {
-      if (inCode) {
-        html.push(`<pre><code>${escapeHtml(codeLines.join("\n"))}</code></pre>`);
-        codeLines = [];
-        inCode = false;
-      } else {
-        flushParagraph(paragraph, html);
-        flushList(list, html);
-        inCode = true;
-      }
-      continue;
-    }
-
-    if (inCode) {
-      codeLines.push(rawLine);
-      continue;
-    }
-
-    if (!line.trim()) {
-      flushParagraph(paragraph, html);
-      flushList(list, html);
-      continue;
-    }
-
-    const heading = /^(#{1,3})\s+(.+)$/.exec(line);
-    if (heading) {
-      flushParagraph(paragraph, html);
-      flushList(list, html);
-      const level = heading[1].length;
-      const text = heading[2].trim();
-      const id = slugify(text);
-      html.push(`<h${level} id="${id}">${renderInline(text)}</h${level}>`);
-      continue;
-    }
-
-    const quote = /^>\s+(.+)$/.exec(line);
-    if (quote) {
-      flushParagraph(paragraph, html);
-      flushList(list, html);
-      html.push(`<blockquote>${renderInline(quote[1])}</blockquote>`);
-      continue;
-    }
-
-    const listItem = /^[-*]\s+(.+)$/.exec(line);
-    if (listItem) {
-      flushParagraph(paragraph, html);
-      list.push(listItem[1]);
-      continue;
-    }
-
-    flushList(list, html);
-    paragraph.push(line.trim());
+  if (!window.marked) {
+    return `<pre><code>${escapeHtml(markdown)}</code></pre>`;
   }
 
-  flushParagraph(paragraph, html);
-  flushList(list, html);
-  if (inCode) {
-    html.push(`<pre><code>${escapeHtml(codeLines.join("\n"))}</code></pre>`);
-  }
+  const marked = new window.marked.Marked({
+    gfm: true,
+    breaks: false,
+    renderer: createRenderer(),
+  });
 
-  return html.join("\n");
+  return marked.parse(markdown);
+}
+
+export async function renderMermaid(root = document) {
+  if (!window.mermaid || !root.querySelector(".mermaid")) return;
+  window.mermaid.initialize({
+    startOnLoad: false,
+    securityLevel: "loose",
+    theme: "default",
+  });
+  await window.mermaid.run({
+    nodes: root.querySelectorAll(".mermaid"),
+  });
 }
 
 export function postHeader(post) {

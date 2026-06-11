@@ -1,4 +1,4 @@
-import { escapeHtml, postHeader, renderMarkdown } from "./markdown.js";
+import { escapeHtml, postHeader, renderMarkdown, renderMermaid } from "./markdown.js";
 
 const form = document.querySelector("#publishForm");
 const status = document.querySelector("#publishStatus");
@@ -49,12 +49,13 @@ function collectPost() {
   };
 }
 
-function updatePreview() {
+async function updatePreview() {
   const post = collectPost();
   preview.innerHTML = `${postHeader(post)}${renderMarkdown(post.content)}`;
+  await renderMermaid(preview);
 }
 
-function buildSnippet() {
+async function buildSnippet() {
   const post = collectPost();
   const indexEntry = {
     slug: post.slug,
@@ -82,6 +83,7 @@ git push`;
     <h2>本地发布片段</h2>
     <pre><code>${escapeHtml(snippet)}</code></pre>
   `;
+  await renderMermaid(preview);
   setStatus("已生成本地文件片段。根据片段创建文件并更新 posts/index.json 后 push。", "success");
 }
 

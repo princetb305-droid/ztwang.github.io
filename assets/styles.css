@@ -620,6 +620,11 @@ textarea:focus {
   color: #343330;
 }
 
+.article ul,
+.article ol {
+  padding-left: 1.45rem;
+}
+
 .article a {
   color: var(--accent-dark);
   font-weight: 700;
@@ -642,6 +647,46 @@ textarea:focus {
 .article pre code {
   padding: 0;
   background: transparent;
+}
+
+.article table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  margin: 24px 0;
+}
+
+.article th,
+.article td {
+  border: 1px solid var(--line);
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.article th {
+  color: var(--ink);
+  background: var(--accent-soft);
+  font-weight: 850;
+}
+
+.article tr:nth-child(even) td {
+  background: rgba(232, 241, 251, 0.45);
+}
+
+.article .mermaid {
+  overflow-x: auto;
+  margin: 24px 0;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.article .mermaid svg {
+  max-width: 100%;
+  height: auto;
 }
 
 .article blockquote {
