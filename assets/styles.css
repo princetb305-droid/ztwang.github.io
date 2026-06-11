@@ -1,17 +1,17 @@
 :root {
   color-scheme: light;
-  --bg: #f7f4ee;
-  --surface: #fffdf8;
+  --bg: #f8f9fb;
+  --surface: #ffffff;
   --surface-strong: #ffffff;
-  --ink: #20201e;
-  --muted: #69655d;
-  --line: #ded8cb;
-  --accent: #1d6f64;
-  --accent-dark: #0f4c43;
-  --accent-soft: #d7ece8;
-  --gold: #b7872a;
+  --ink: #22272e;
+  --muted: #5f6b7a;
+  --line: #d8dee8;
+  --accent: #2c6fb7;
+  --accent-dark: #164f8c;
+  --accent-soft: #e8f1fb;
+  --gold: #7a5b18;
   --rose: #b9584f;
-  --shadow: 0 18px 45px rgba(44, 39, 28, 0.12);
+  --shadow: 0 18px 45px rgba(24, 39, 75, 0.1);
   --radius: 8px;
   font-family:
     Inter, "Segoe UI", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
@@ -28,9 +28,7 @@ html {
 body {
   margin: 0;
   color: var(--ink);
-  background:
-    linear-gradient(180deg, rgba(255, 253, 248, 0.8), rgba(247, 244, 238, 0.95)),
-    var(--bg);
+  background: var(--bg);
   line-height: 1.65;
 }
 
@@ -59,8 +57,8 @@ textarea {
   gap: 24px;
   min-height: 72px;
   padding: 14px clamp(18px, 5vw, 72px);
-  border-bottom: 1px solid rgba(222, 216, 203, 0.8);
-  background: rgba(255, 253, 248, 0.9);
+  border-bottom: 1px solid rgba(216, 222, 232, 0.9);
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(18px);
 }
 
@@ -211,128 +209,49 @@ h3 {
   background: #f4eee0;
 }
 
-.profile-page {
-  width: min(1020px, calc(100% - 36px));
+.about-page {
+  width: min(1120px, calc(100% - 36px));
 }
 
-.profile-hero {
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.55fr);
-  gap: clamp(28px, 5vw, 64px);
-  align-items: center;
-  padding: clamp(56px, 9vw, 110px) 0 58px;
+.page-title {
+  padding: 54px 0 28px;
   border-bottom: 1px solid var(--line);
 }
 
-.profile-copy {
-  max-width: 720px;
+.page-title h1 {
+  font-size: clamp(2.4rem, 6vw, 4.6rem);
 }
 
-.profile-lead {
-  max-width: 690px;
-  margin: 24px 0 0;
-  color: var(--muted);
-  font-size: 1.12rem;
+.about-layout {
+  display: grid;
+  grid-template-columns: minmax(210px, 280px) minmax(0, 1fr);
+  gap: clamp(30px, 6vw, 82px);
+  align-items: start;
+  padding: 44px 0 80px;
 }
 
-.profile-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 30px;
+.about-entity {
+  position: sticky;
+  top: 96px;
 }
 
-.profile-card {
-  padding: 26px;
-  border: 1px solid var(--line);
+.about-image {
+  width: min(240px, 100%);
+  aspect-ratio: 1;
+  object-fit: cover;
   border-radius: var(--radius);
-  background: var(--surface);
+  border: 1px solid var(--line);
   box-shadow: var(--shadow);
 }
 
-.avatar {
-  display: grid;
-  width: 96px;
-  height: 96px;
-  margin-bottom: 20px;
-  place-items: center;
-  border-radius: 50%;
-  color: #fff;
-  background: var(--accent-dark);
-  font-size: 2.4rem;
-  font-weight: 900;
-}
-
-.profile-card h2 {
-  font-size: 1.6rem;
-}
-
-.profile-card p,
-.quick-facts dd,
-.timeline-item p,
-.project-card p,
-.articles-hero p {
-  color: var(--muted);
-}
-
-.quick-facts {
-  display: grid;
-  gap: 12px;
-  margin: 22px 0 0;
-}
-
-.quick-facts div {
-  display: grid;
-  grid-template-columns: 86px minmax(0, 1fr);
-  gap: 14px;
-  padding-top: 12px;
-  border-top: 1px solid var(--line);
-}
-
-.quick-facts dt {
-  color: var(--gold);
-  font-weight: 850;
-}
-
-.quick-facts dd {
-  margin: 0;
-}
-
-.resume-section {
-  padding: 56px 0;
-  border-bottom: 1px solid var(--line);
-}
-
-.timeline {
-  display: grid;
-  gap: 18px;
-  margin-top: 26px;
-}
-
-.timeline-item {
-  display: grid;
-  grid-template-columns: 150px minmax(0, 1fr);
-  gap: 22px;
-  padding: 18px 0;
-}
-
-.timeline-date {
-  color: var(--accent-dark);
-  font-weight: 850;
-}
-
-.timeline-item p {
-  margin: 8px 0 0;
-}
-
-.skill-cloud {
+.about-links {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 24px;
+  margin-top: 18px;
 }
 
-.skill-cloud span {
+.about-links a {
   display: inline-flex;
   min-height: 36px;
   align-items: center;
@@ -340,8 +259,116 @@ h3 {
   border: 1px solid var(--line);
   border-radius: 999px;
   color: var(--accent-dark);
-  background: var(--surface-strong);
+  background: var(--surface);
   font-weight: 800;
+  text-decoration: none;
+}
+
+.about-links a:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.about-content {
+  max-width: 790px;
+}
+
+.about-intro {
+  margin: 0 0 34px;
+  color: #303846;
+  font-size: 1.18rem;
+  line-height: 1.8;
+}
+
+.about-intro a,
+.timeline-content a,
+.project-card a {
+  color: var(--accent-dark);
+}
+
+.resume-section {
+  padding: 36px 0;
+  border-top: 1px solid var(--line);
+}
+
+.timeline {
+  position: relative;
+  display: grid;
+  gap: 24px;
+  margin-top: 22px;
+}
+
+.timeline::before {
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 7px;
+  width: 2px;
+  background: var(--line);
+  content: "";
+}
+
+.timeline-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 16px;
+}
+
+.timeline-dot {
+  position: relative;
+  z-index: 1;
+  width: 16px;
+  height: 16px;
+  margin-top: 5px;
+  border: 3px solid var(--accent);
+  border-radius: 50%;
+  background: var(--surface);
+}
+
+.timeline-content .year {
+  color: var(--gold);
+  font-size: 0.92rem;
+  font-weight: 850;
+}
+
+.timeline-content h3 {
+  margin-top: 2px;
+}
+
+.timeline-content p,
+.project-card p,
+.articles-hero p {
+  color: var(--muted);
+}
+
+.timeline-content p {
+  margin: 4px 0 0;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.tech-tags span {
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--accent-dark);
+  background: var(--surface);
+  font-weight: 800;
+}
+
+.tech-tags .highlight {
+  color: #fff;
+  border-color: var(--accent-dark);
+  background: var(--accent-dark);
 }
 
 .project-grid {
@@ -728,7 +755,7 @@ fieldset > .form-grid {
 
 @media (max-width: 920px) {
   .hero-section,
-  .profile-hero,
+  .about-layout,
   .intro-grid,
   .publish-shell {
     grid-template-columns: 1fr;
@@ -744,6 +771,10 @@ fieldset > .form-grid {
 
   .project-grid {
     grid-template-columns: 1fr;
+  }
+
+  .about-entity {
+    position: static;
   }
 
   .preview-panel {
@@ -774,12 +805,6 @@ fieldset > .form-grid {
   .post-list,
   .form-grid {
     grid-template-columns: 1fr;
-  }
-
-  .timeline-item,
-  .quick-facts div {
-    grid-template-columns: 1fr;
-    gap: 6px;
   }
 
   .post-card {
