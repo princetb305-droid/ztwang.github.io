@@ -23,7 +23,7 @@ async function loadArticle() {
     if (!articleResponse.ok) throw new Error("文章正文加载失败");
     const content = await articleResponse.text();
 
-    document.title = `${post.title} - My Blog`;
+    document.title = `${post.title} - ztwang`;
     article.innerHTML = `${postHeader({ ...post, content })}${renderMarkdown(content)}`;
   } catch (error) {
     article.innerHTML = `<p class="empty-state">${escapeHtml(error.message)}。</p>`;

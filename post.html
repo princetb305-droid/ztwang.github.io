@@ -3,33 +3,34 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="博客文章详情页。">
-    <title>Article - My Blog</title>
+    <meta name="description" content="ztwang 的博客文章详情页。">
+    <title>Article - ztwang</title>
     <link rel="stylesheet" href="assets/styles.css">
   </head>
   <body>
     <header class="site-header">
       <a class="brand" href="index.html" aria-label="回到首页">
-        <span class="brand-mark">B</span>
-        <span>My Blog</span>
+        <span class="brand-mark">Z</span>
+        <span>ztwang</span>
       </a>
       <nav class="nav-links" aria-label="主导航">
-        <a href="index.html#posts">文章</a>
-        <a href="index.html#about">关于</a>
+        <a href="index.html">关于</a>
+        <a aria-current="page" href="articles.html">文章</a>
+        <a href="index.html#projects">项目</a>
         <a href="publish.html">发布</a>
       </nav>
     </header>
 
     <main class="article-shell">
-      <a class="back-link" href="index.html#posts">返回文章列表</a>
+      <a class="back-link" href="articles.html">返回文章列表</a>
       <article class="article" id="article">
         <p class="loading">正在加载文章...</p>
       </article>
     </main>
 
     <footer class="site-footer">
-      <span>Powered by GitHub Pages</span>
-      <span>Back to top</span>
+      <span>© ztwang</span>
+      <span><a href="articles.html">Back to articles</a></span>
     </footer>
 
     <script src="assets/post.js" type="module"></script>

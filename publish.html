@@ -3,19 +3,20 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="通过 GitHub 账号发布博客文章。">
-    <title>发布文章 - My Blog</title>
+    <meta name="description" content="本地写作并通过 GitHub Pages 发布博客。">
+    <title>写作与发布 - ztwang</title>
     <link rel="stylesheet" href="assets/styles.css">
   </head>
   <body>
     <header class="site-header">
       <a class="brand" href="index.html" aria-label="回到首页">
-        <span class="brand-mark">B</span>
-        <span>My Blog</span>
+        <span class="brand-mark">Z</span>
+        <span>ztwang</span>
       </a>
       <nav class="nav-links" aria-label="主导航">
-        <a href="index.html#posts">文章</a>
-        <a href="index.html#about">关于</a>
+        <a href="index.html">关于</a>
+        <a href="articles.html">文章</a>
+        <a href="index.html#projects">项目</a>
         <a aria-current="page" href="publish.html">发布</a>
       </nav>
     </header>
@@ -23,42 +24,16 @@
     <main class="publish-shell">
       <section class="publish-heading" aria-labelledby="publish-title">
         <p class="section-kicker">Publish</p>
-        <h1 id="publish-title">在网页里发布新博客</h1>
+        <h1 id="publish-title">本地写作，GitHub Pages 发布</h1>
         <p>
-          填入你的 GitHub 仓库信息和 token 后，页面会先确认 token 的 GitHub 用户名等于仓库 owner，
-          再把文章和索引一次提交到仓库。
+          这个博客是纯静态个人站点，目标仓库固定为
+          <strong>princetb305-droid/ztwang.github.io</strong>。写完文章后在本地提交并 push 即可发布。
         </p>
       </section>
 
       <form class="publish-form" id="publishForm">
         <fieldset>
-          <legend>GitHub 仓库</legend>
-          <div class="form-grid">
-            <label>
-              <span>Owner</span>
-              <input id="repoOwner" name="repoOwner" autocomplete="username" placeholder="你的 GitHub 用户名" required>
-            </label>
-            <label>
-              <span>Repository</span>
-              <input id="repoName" name="repoName" placeholder="username.github.io 或 blog" required>
-            </label>
-            <label>
-              <span>Branch</span>
-              <input id="repoBranch" name="repoBranch" value="main" required>
-            </label>
-            <label>
-              <span>发布目录</span>
-              <input id="sitePath" name="sitePath" value="" placeholder="根目录留空；docs 填 docs">
-            </label>
-          </div>
-          <label>
-            <span>GitHub fine-grained token</span>
-            <input id="githubToken" name="githubToken" type="password" autocomplete="off" placeholder="需要 Contents: Read and write 权限" required>
-          </label>
-        </fieldset>
-
-        <fieldset>
-          <legend>文章内容</legend>
+          <legend>文章草稿</legend>
           <label>
             <span>标题</span>
             <input id="title" name="title" placeholder="文章标题" required>
@@ -75,7 +50,7 @@
           </div>
           <label>
             <span>摘要</span>
-            <textarea id="summary" name="summary" rows="3" placeholder="用于首页卡片的一句话摘要" required></textarea>
+            <textarea id="summary" name="summary" rows="3" placeholder="用于文章列表的一句话摘要" required></textarea>
           </label>
           <label>
             <span>Markdown 正文</span>
@@ -85,7 +60,7 @@
 
         <div class="publish-actions">
           <button class="button secondary" id="previewButton" type="button">预览</button>
-          <button class="button primary" id="submitButton" type="submit">发布到 GitHub</button>
+          <button class="button primary" id="snippetButton" type="button">生成本地文件片段</button>
         </div>
         <p class="status" id="publishStatus" role="status"></p>
       </form>
@@ -101,11 +76,25 @@
           <p class="empty-state">点击“预览”查看渲染效果。</p>
         </article>
       </section>
+
+      <section class="publish-guide" aria-labelledby="guide-title">
+        <p class="section-kicker">Workflow</p>
+        <h2 id="guide-title">发布步骤</h2>
+        <ol>
+          <li>在 <code>D:\blog\posts</code> 新建一篇 <code>.md</code> 文件。</li>
+          <li>把文章信息追加到 <code>D:\blog\posts\index.json</code>。</li>
+          <li>运行下面的 git 命令发布。</li>
+        </ol>
+        <pre><code>cd D:\blog
+git add .
+git commit -m "Add new post"
+git push</code></pre>
+      </section>
     </main>
 
     <footer class="site-footer">
-      <span>Token 只保存在当前页面内存中</span>
-      <span>GitHub 会执行最终权限校验</span>
+      <span>Repository: princetb305-droid/ztwang.github.io</span>
+      <span>No browser token required.</span>
     </footer>
 
     <script src="assets/publish.js" type="module"></script>

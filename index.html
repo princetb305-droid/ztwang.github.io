@@ -3,80 +3,137 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="一个可直接在网页中发布文章的个人博客。">
-    <title>My Blog</title>
+    <meta name="description" content="ztwang 的个人主页与博客。">
+    <title>ztwang - About</title>
     <link rel="stylesheet" href="assets/styles.css">
   </head>
   <body>
     <header class="site-header">
       <a class="brand" href="index.html" aria-label="回到首页">
-        <span class="brand-mark">B</span>
-        <span>My Blog</span>
+        <span class="brand-mark">Z</span>
+        <span>ztwang</span>
       </a>
       <nav class="nav-links" aria-label="主导航">
-        <a href="#posts">文章</a>
-        <a href="#about">关于</a>
+        <a aria-current="page" href="index.html">关于</a>
+        <a href="articles.html">文章</a>
+        <a href="#projects">项目</a>
         <a href="publish.html">发布</a>
       </nav>
     </header>
 
-    <main>
-      <section class="hero-section" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <p class="eyebrow">Personal notes, ideas and projects</p>
-          <h1 id="hero-title">记录值得反复咀嚼的学习、技术和生活观察。</h1>
-          <p class="hero-text">
-            参考 Quarto 个人站的清爽结构，保留首页介绍、文章索引、项目式归档和搜索体验。
-            你可以直接在站点内通过 GitHub 账号发布新文章。
+    <main class="profile-page">
+      <section class="profile-hero" aria-labelledby="profile-title">
+        <div class="profile-copy">
+          <p class="eyebrow">About ztwang</p>
+          <h1 id="profile-title">你好，我是 ztwang。</h1>
+          <p class="profile-lead">
+            这里是我的个人主页和博客，用来整理学习笔记、技术实践、项目复盘和阶段性思考。
+            我关注 AI、软件工程、产品体验，以及把复杂问题讲清楚的表达方式。
           </p>
-          <div class="hero-actions">
-            <a class="button primary" href="#posts">浏览文章</a>
-            <a class="button secondary" href="publish.html">写一篇</a>
+          <div class="profile-links" aria-label="个人链接">
+            <a class="button primary" href="articles.html">阅读文章</a>
+            <a class="button secondary" href="mailto:your-email@example.com">联系我</a>
           </div>
         </div>
-        <div class="hero-visual" aria-hidden="true">
-          <img src="assets/hero.svg" alt="">
+        <aside class="profile-card" aria-label="个人信息">
+          <div class="avatar" aria-hidden="true">Z</div>
+          <h2>ztwang</h2>
+          <p>AI learner · Builder · Writer</p>
+          <dl class="quick-facts">
+            <div>
+              <dt>Location</dt>
+              <dd>China</dd>
+            </div>
+            <div>
+              <dt>Focus</dt>
+              <dd>AI / Web / Notes</dd>
+            </div>
+            <div>
+              <dt>GitHub</dt>
+              <dd><a href="https://github.com/princetb305-droid">princetb305-droid</a></dd>
+            </div>
+          </dl>
+        </aside>
+      </section>
+
+      <section class="resume-section" aria-labelledby="education-title">
+        <p class="section-kicker">Education</p>
+        <h2 id="education-title">教育经历</h2>
+        <div class="timeline">
+          <article class="timeline-item">
+            <span class="timeline-date">2026 - Now</span>
+            <div>
+              <h3>持续学习</h3>
+              <p>围绕人工智能、计算机基础、工程实践和写作表达建立长期知识库。</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <span class="timeline-date">Past</span>
+            <div>
+              <h3>计算机与技术学习</h3>
+              <p>系统整理课程、论文、项目与实践中的关键概念，沉淀为可复用的博客内容。</p>
+            </div>
+          </article>
         </div>
       </section>
 
-      <section class="intro-grid" id="about" aria-labelledby="about-title">
-        <div>
-          <p class="section-kicker">About</p>
-          <h2 id="about-title">一个适合长期写作的静态博客。</h2>
-        </div>
-        <div class="intro-copy">
-          <p>
-            站点不需要数据库，也不需要自建服务器。所有文章都存放在仓库中，GitHub Pages 负责部署，
-            GitHub API 负责在你发布时把 Markdown 文件写回仓库。
-          </p>
-          <p>
-            只有拥有仓库写权限的 GitHub 账号才能发布。前端不会保存 token，刷新页面后需要重新填写。
-          </p>
+      <section class="resume-section" aria-labelledby="experience-title">
+        <p class="section-kicker">Experience</p>
+        <h2 id="experience-title">实践经历</h2>
+        <div class="timeline">
+          <article class="timeline-item">
+            <span class="timeline-date">Projects</span>
+            <div>
+              <h3>个人项目与实验</h3>
+              <p>用小项目验证想法，关注从需求拆解、技术选型到用户体验的完整过程。</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <span class="timeline-date">Writing</span>
+            <div>
+              <h3>学习笔记与复盘</h3>
+              <p>把输入转化为结构化输出，记录踩坑、推理过程和可以复用的方法。</p>
+            </div>
+          </article>
         </div>
       </section>
 
-      <section class="posts-section" id="posts" aria-labelledby="posts-title">
-        <div class="section-heading">
-          <div>
-            <p class="section-kicker">Blogs</p>
-            <h2 id="posts-title">最新文章</h2>
-          </div>
-          <label class="search-box">
-            <span>搜索</span>
-            <input id="searchInput" type="search" placeholder="标题、标签、摘要..." autocomplete="off">
-          </label>
+      <section class="resume-section" aria-labelledby="skills-title">
+        <p class="section-kicker">Skills</p>
+        <h2 id="skills-title">技术方向</h2>
+        <div class="skill-cloud">
+          <span>Python</span>
+          <span>JavaScript</span>
+          <span>Machine Learning</span>
+          <span>LLM</span>
+          <span>Web Development</span>
+          <span>GitHub Pages</span>
+          <span>Technical Writing</span>
+          <span>Product Thinking</span>
         </div>
-        <div class="filters" id="tagFilters" aria-label="文章标签筛选"></div>
-        <div class="post-list" id="postList" aria-live="polite"></div>
-        <p class="empty-state hidden" id="emptyState">没有找到匹配的文章。</p>
+      </section>
+
+      <section class="resume-section" id="projects" aria-labelledby="projects-title">
+        <p class="section-kicker">Projects</p>
+        <h2 id="projects-title">项目与写作</h2>
+        <div class="project-grid">
+          <a class="project-card" href="articles.html">
+            <span>Blog</span>
+            <h3>个人博客系统</h3>
+            <p>基于 GitHub Pages 的静态博客，支持 Markdown 文章、搜索、标签和本地写作预览。</p>
+          </a>
+          <a class="project-card" href="https://github.com/princetb305-droid">
+            <span>GitHub</span>
+            <h3>代码仓库</h3>
+            <p>记录代码实验、工具构建和学习过程中的工程实践。</p>
+          </a>
+        </div>
       </section>
     </main>
 
     <footer class="site-footer">
+      <span>© ztwang</span>
       <span>Powered by GitHub Pages</span>
-      <span>Write locally, publish from the browser.</span>
     </footer>
-
-    <script src="assets/home.js" type="module"></script>
   </body>
 </html>

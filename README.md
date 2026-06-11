@@ -1,6 +1,8 @@
-# My Blog
+# ztwang.github.io
 
-一个参考 Quarto 个人站结构的静态博客，支持在网页中通过 GitHub API 发布文章。
+这是部署到 `princetb305-droid/ztwang.github.io` 的个人主页与静态博客。
+
+首页参考 <https://yyzhang2025.github.io/> 的组织方式：第一屏是个人简介，下面是教育经历、实践经历、技术方向和项目。文章列表被拆到独立的 `articles.html`，右上角“文章”会直接跳转到文章页。
 
 ## 本地预览
 
@@ -11,40 +13,66 @@ python -m http.server 4173
 
 打开 <http://localhost:4173>。
 
-## 部署到 GitHub Pages
+## 推送到 GitHub
 
-1. 在 GitHub 新建仓库，例如 `你的用户名.github.io` 或 `blog`。
-2. 把本目录推送到仓库。
-3. 在仓库 `Settings -> Pages` 中选择从 `main` 分支根目录部署。
+```powershell
+cd D:\blog
+git remote set-url origin https://github.com/princetb305-droid/ztwang.github.io.git
+git branch -M main
+git add .
+git commit -m "Update personal site"
+git push -u origin main
+```
 
-如果你想部署到 `docs/`，把这些文件放入 `docs/`，并在发布页的“发布目录”填写 `docs`。
+## 开启 GitHub Pages
 
-## 网页内发布文章
+进入仓库：
 
-发布页地址是 `/publish.html`。
+`Settings -> Pages -> Build and deployment`
 
-需要准备 GitHub fine-grained personal access token：
+选择：
 
-- Repository access：只选择你的博客仓库。
-- Permissions：`Contents` 设置为 `Read and write`。
-- 不要把 token 提交到仓库，也不要写进任何源码文件。
+- Source: `Deploy from a branch`
+- Branch: `main`
+- Folder: `/(root)`
 
-发布时页面会做两层限制：
+保存后访问：
 
-- 调用 GitHub API 确认 token 对应的 GitHub 用户名等于仓库 owner。
-- GitHub 自身会检查 token 是否真的有仓库写权限。
+<https://ztwang.github.io>
 
-因此只有拥有该博客仓库写权限的 GitHub 账号才能发布。
+## 发布新文章
+
+1. 在 `posts/` 下新建 Markdown 文件，例如 `2026-06-11-my-note.md`。
+2. 在 `posts/index.json` 顶部新增文章信息：
+
+```json
+{
+  "slug": "2026-06-11-my-note",
+  "title": "文章标题",
+  "date": "2026-06-11",
+  "summary": "文章摘要",
+  "tags": ["Notes"]
+}
+```
+
+3. 提交并推送：
+
+```powershell
+cd D:\blog
+git add .
+git commit -m "Add new post"
+git push
+```
 
 ## 文件结构
 
 ```text
 .
 ├── index.html
+├── articles.html
 ├── post.html
 ├── publish.html
 ├── assets/
-│   ├── hero.svg
 │   ├── home.js
 │   ├── markdown.js
 │   ├── post.js
