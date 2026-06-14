@@ -1,5 +1,12 @@
 [
   {
+    "slug": "mGTE方法中的unpadding实现解读",
+    "title": "mGTE方法中的unpadding实现解读",
+    "date": "2026-06-14",
+    "summary": "mGTE 的 unpadding 方法：将 batch 内的 padding tokens 全部去掉，把真实 token 拼接成一个长序列，通过 xFormers 的 variable length attention 在单个长序列上完成各样本的独立注意力计算，从而避免在 padding 上浪费算力，显著加速训练和推理。",
+    "tags": ["Notes", "mGTE", "LLM"]
+  },
+  {
     "slug": "AI同声传译系统",
     "title": "AI 同声传译系统",
     "date": "2026-06-05",
