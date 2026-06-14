@@ -1,6 +1,3 @@
-# mGTE方法中的unpadding实现解读
-
-
 
 **mGTE** 是阿里巴巴（通义实验室）2024 年提出的多语言长文本检索模型（全称 *Generalized Long-Context Text Representation and Reranking Models for Multilingual Text Retrieval*）。其 **unpadding** 方法是一种**计算效率优化技术**，主要用于避免在 padding tokens 上浪费算力，核心思想参考了 MosaicBERT（Portes et al., 2023）和 xFormers 的 variable length attention 实现。
 
