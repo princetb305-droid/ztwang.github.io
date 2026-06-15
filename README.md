@@ -3,6 +3,7 @@
 这是部署到 `princetb305-droid/ztwang.github.io` 的个人主页与静态博客。
 
 首页参考 <https://yyzhang2025.github.io/> 的组织方式：第一屏是个人简介，下面是教育经历、实践经历、技术方向和项目。文章列表被拆到独立的 `articles.html`，右上角“文章”会直接跳转到文章页。
+`publish.html` 现在作为论文与奖项页使用，后续可以直接在页面中替换占位内容。
 
 ## 本地预览
 
@@ -71,12 +72,11 @@ git push
 ├── index.html
 ├── articles.html
 ├── post.html
-├── publish.html
+├── publish.html        # Publications & Awards
 ├── assets/
 │   ├── home.js
 │   ├── markdown.js
 │   ├── post.js
-│   ├── publish.js
 │   └── styles.css
 └── posts/
     ├── index.json

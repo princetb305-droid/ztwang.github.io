@@ -1,104 +1,90 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="本地写作并通过 GitHub Pages 发布博客。">
-    <title>写作与发布 - ztwang</title>
+    <meta name="description" content="Publications and awards of Ziteng Wang.">
+    <title>Publications & Awards - Ziteng Wang</title>
+    <link rel="icon" href="assets/images/icon.avif">
     <link rel="stylesheet" href="assets/styles.css">
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="index.html" aria-label="回到首页">
+      <a class="brand" href="index.html" aria-label="Back to home">
         <span class="brand-mark">Z</span>
         <span>Ziteng Wang</span>
       </a>
-      <nav class="nav-links" aria-label="主导航">
+      <nav class="nav-links" aria-label="Main navigation">
         <a href="index.html">About Me</a>
         <a href="articles.html">Blogs</a>
         <a href="index.html#projects">Projects</a>
-        <a aria-current="page" href="publish.html">Publish</a>
+        <a aria-current="page" href="publish.html">Publications & Awards</a>
       </nav>
     </header>
 
-    <main class="publish-shell">
-      <section class="publish-heading" aria-labelledby="publish-title">
-        <p class="section-kicker">Publish</p>
-        <h1 id="publish-title">本地写作，GitHub Pages 发布</h1>
-        <p>
-          这个博客是纯静态个人站点，目标仓库固定为
-          <strong>princetb305-droid/ztwang.github.io</strong>。写完文章后在本地提交并 push 即可发布。
-        </p>
-      </section>
+    <main class="academic-page">
+      <header class="page-title">
+        <p class="section-kicker">Academic Profile</p>
+        <h1>Publications & Awards</h1>
+      </header>
 
-      <form class="publish-form" id="publishForm">
-        <fieldset>
-          <legend>文章草稿</legend>
-          <label>
-            <span>标题</span>
-            <input id="title" name="title" placeholder="文章标题" required>
-          </label>
-          <div class="form-grid">
-            <label>
-              <span>日期</span>
-              <input id="date" name="date" type="date" required>
-            </label>
-            <label>
-              <span>标签</span>
-              <input id="tags" name="tags" placeholder="AI, Notes, Life">
-            </label>
+      <section class="academic-layout" aria-labelledby="publications-title">
+        <article class="academic-section" id="publications">
+          <div class="section-heading compact">
+            <div>
+              <p class="section-kicker">Publications</p>
+              <h2 id="publications-title">Selected Publications</h2>
+            </div>
           </div>
-          <label>
-            <span>摘要</span>
-            <textarea id="summary" name="summary" rows="3" placeholder="用于文章列表的一句话摘要" required></textarea>
-          </label>
-          <label>
-            <span>Markdown 正文</span>
-            <textarea id="content" name="content" rows="16" placeholder="# 小标题&#10;&#10;这里写正文..." required></textarea>
-          </label>
-        </fieldset>
-
-        <div class="publish-actions">
-          <button class="button secondary" id="previewButton" type="button">预览</button>
-          <button class="button primary" id="snippetButton" type="button">生成本地文件片段</button>
-        </div>
-        <p class="status" id="publishStatus" role="status"></p>
-      </form>
-
-      <section class="preview-panel" aria-labelledby="preview-title">
-        <div class="section-heading compact">
-          <div>
-            <p class="section-kicker">Preview</p>
-            <h2 id="preview-title">文章预览</h2>
+          <div class="academic-list">
+            <div class="academic-placeholder">
+              <h3>Publication title</h3>
+              <p class="academic-meta">Authors, venue, year</p>
+              <p>
+                Add your paper information here, including title, author order,
+                conference or journal, publication status, and links.
+              </p>
+            </div>
+            <div class="academic-placeholder">
+              <h3>Publication title</h3>
+              <p class="academic-meta">Authors, venue, year</p>
+              <p>
+                Add another publication entry when you are ready.
+              </p>
+            </div>
           </div>
-        </div>
-        <article class="article preview" id="preview">
-          <p class="empty-state">点击“预览”查看渲染效果。</p>
         </article>
-      </section>
 
-      <section class="publish-guide" aria-labelledby="guide-title">
-        <p class="section-kicker">Workflow</p>
-        <h2 id="guide-title">发布步骤</h2>
-        <ol>
-          <li>在 <code>D:\blog\posts</code> 新建一篇 <code>.md</code> 文件。</li>
-          <li>把文章信息追加到 <code>D:\blog\posts\index.json</code>。</li>
-          <li>运行下面的 git 命令发布。</li>
-        </ol>
-        <pre><code>cd D:\blog
-git add .
-git commit -m "Add new post"
-git push</code></pre>
+        <article class="academic-section" id="awards">
+          <div class="section-heading compact">
+            <div>
+              <p class="section-kicker">Awards</p>
+              <h2 id="awards-title">Honors & Awards</h2>
+            </div>
+          </div>
+          <div class="academic-list">
+            <div class="academic-placeholder">
+              <h3>Award name</h3>
+              <p class="academic-meta">Organization, year</p>
+              <p>
+                Add your award level, issuing organization, date, and brief context here.
+              </p>
+            </div>
+            <div class="academic-placeholder">
+              <h3>Award name</h3>
+              <p class="academic-meta">Organization, year</p>
+              <p>
+                Add another honor or competition award entry when available.
+              </p>
+            </div>
+          </div>
+        </article>
       </section>
     </main>
 
     <footer class="site-footer">
-      <span>Repository: princetb305-droid/ztwang.github.io</span>
-      <span>No browser token required.</span>
+      <span>© CC-By Ziteng Wang, 2026</span>
+      <span><a href="index.html">Back to profile</a></span>
     </footer>
-
-    <script src="assets/vendor/marked.min.js"></script>
-    <script src="assets/vendor/mermaid.min.js"></script>
-    <script src="assets/publish.js?v=5" type="module"></script>
   </body>
 </html>

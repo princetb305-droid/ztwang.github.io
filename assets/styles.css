@@ -404,6 +404,48 @@ h3 {
   margin-top: 16px;
 }
 
+.academic-page {
+  width: min(1120px, calc(100% - 36px));
+}
+
+.academic-layout {
+  display: grid;
+  gap: 34px;
+  padding: 44px 0 88px;
+}
+
+.academic-section {
+  padding: 0 0 34px;
+  border-bottom: 1px solid var(--line);
+}
+
+.academic-list {
+  display: grid;
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.academic-placeholder {
+  padding: 22px 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.academic-placeholder h3 {
+  color: var(--ink);
+}
+
+.academic-meta {
+  margin: 6px 0 0;
+  color: var(--gold);
+  font-weight: 850;
+}
+
+.academic-placeholder p:last-child {
+  max-width: 760px;
+  margin: 10px 0 0;
+  color: var(--muted);
+}
+
 .articles-hero {
   padding: clamp(54px, 8vw, 92px) 0 34px;
 }
