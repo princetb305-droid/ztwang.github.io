@@ -3,7 +3,7 @@
     "slug": "LongLLMLingua中r_k计算公式拆解",
     "title": "LongLLMLingua中r_k计算公式拆解",
     "date": "2026-06-19",
-    "summary": "rk衡量的是：给定文档后，模型"压缩"query 所需的期望信息量。rk越高，说明文档让模型预测 query 越轻松，即文档与 query 越相关。用 plogp  而不是标准困惑度，是为了更鲁棒地反映整体的概率质量分布，同时 restrict 语句起到强化关联和抑制幻觉的作用。",
+    "summary": "rk衡量的是：给定文档后，模型压缩"query 所需的期望信息量。rk越高，说明文档让模型预测 query 越轻松，即文档与 query 越相关。用 plogp  而不是标准困惑度，是为了更鲁棒地反映整体的概率质量分布，同时 restrict 语句起到强化关联和抑制幻觉的作用。",
     "tags": ["Notes", "LongLLMLingua", "LLM"]
   },
   {
